@@ -7,6 +7,7 @@ const fs = require('fs')
 const globalConfigPath = path.join(__dirname, 'globalConfigMongo.json')
 
 class MongoEnvironment extends NodeEnvironment {
+  // eslint-disable-next-line no-useless-constructor
   constructor (config) {
     super(config)
   }

@@ -10,7 +10,7 @@
     "db": "babel-node ./db/index.js",
     "dev": "nodemon --exec babel-node ./src/index.js",
     "start": "npm run clean && npm run build && npm run db && cd dist && node index.js",
-    "test": "jest src/domain --watch",
+    "test": "jest src --watch",
     "test:e2e": "jest ./__test__ --runInBand"
   },
   "author": "Bill Sourour <bill@devmastery.com>",
@@ -19,20 +19,22 @@
     "verbose": false,
     "globalSetup": "./jest-setup.js",
     "globalTeardown": "./jest-teardown.js",
-    "testEnvironment": "./jest-mongo.js"
+    "testEnvironment": "./jest-mongo.js",
+    "transform": {
+      "^.+\\.jsx$": "babel-jest",
+      "^.+\\.js$": "babel-jest"
+    }
   },
   "dependencies": {
     "@devmastery/pipe": "^0.0.6",
-    "axios": "^0.18.1",
+    "axios": "^0.18.0",
+    "babel-jest": "^24.9.0",
     "babel-plugin-inline-dotenv": "^1.2.2",
-    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
-    "core-js": "^3.4.5",
     "cuid": "^2.1.6",
     "express": "^4.16.4",
     "ip-regex": "^4.0.0",
     "is-valid-email": "0.0.4",
-    "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.1.13",
     "p-reduce": "^2.0.0",
     "sanitize-html": "^1.20.0"
@@ -41,8 +43,10 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@babel/node": "^7.2.2",
+    "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.3.4",
     "babel-jest": "^24.4.0",
+    "babel-preset-env": "^1.7.0",
     "dotenv": "^6.2.0",
     "eslint": "^5.15.1",
     "eslint-config-standard": "^12.0.0",
@@ -54,6 +58,7 @@
     "jest": "^24.3.1",
     "mongodb-memory-server": "^4.0.2",
     "nodemon": "^1.18.10",
+    "regenerator-runtime": "^0.13.3",
     "rimraf": "^2.6.3"
   }
 }

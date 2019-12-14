@@ -5,11 +5,10 @@
       {
         "targets": {
           "node": true
-        }
+        },
+        "useBuiltIns": "usage"
       }
     ]
   ],
-  "plugins": [
-    "inline-dotenv"
-  ]
+  "plugins": ["inline-dotenv"]
 }

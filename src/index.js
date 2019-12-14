@@ -1,14 +1,14 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import dotenv from 'dotenv'
+import express from 'express';
+import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
 import {
   deleteComment,
   getComments,
   notFound,
   postComment,
   patchComment
-} from './controllers'
-import makeCallback from './express-callback'
+} from './controllers';
+import makeCallback from './express-callback';
 
 dotenv.config()
 
@@ -28,11 +28,9 @@ app.patch(`${apiRoot}/comments`, makeCallback(patchComment))
 app.get(`${apiRoot}/comments`, makeCallback(getComments))
 app.use(makeCallback(notFound))
 
-
-  // listen for requests
-  app.listen(3000, () => {
-    console.log('Server is listening on port 3000')
-  })
-
+// listen for requests
+app.listen(3000, () => {
+  console.log('Server is listening on port 3000')
+})
 
 export default app

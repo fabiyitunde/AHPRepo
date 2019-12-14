@@ -1,5 +1,6 @@
-import makeCommentsDb from './comments-db'
-import mongodb from 'mongodb'
+import makeUsersDb from './users-db';
+
+import mongodb from 'mongodb';
 
 const MongoClient = mongodb.MongoClient
 const url = process.env.DM_COMMENTS_DB_URL
@@ -13,5 +14,5 @@ export async function makeDb () {
   return client.db(dbName)
 }
 
-const commentsDb = makeCommentsDb({ makeDb })
-export default commentsDb
+export const usersDb = makeUsersDb({ makeDb })
+// xport default commentsDb
